@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+require "war"
+BEGIN {
+	ARGV[0] = case ARGV[0]
+		when "-h" then "--help"
+		when "-v" then "--version"
+	end
+	puts case ARGV[0]
+		when "--version"; "0.0.0.dev"; exit
+		when "--help"; "Usage: war [-h | -v]\n\t -v/--version: The version \n\t -h/--help: This message"; exit
+	end
+}
+user, dealer, deck, arena = Array.new, Array.new, Deck.new, Array.new
+until deck.cards.empty?
+	user.push deck.cards.shift
+	dealer.push deck.cards.shift
+	user.shuffle!
+	dealer.shuffle!
+end
+until user.empty? || dealer.empty?
+	ucard, dcard = user.shift, dealer.shift
+	arena.push ucard.clone
+	arena.push dcard.clone
+	while ucard.value == dcard.value
+		puts "Tie!\n"; sleep 1.5
+		2.times do
+			arena.push(user.shift) unless user.length =< 1
+			arena.push(dealer.shift) unless dealer.length =< 1
+		end
+		unless user.empty?
+			ucard = user.shift
+			puts "You play a(n) #{ucard.num}"
+			arena.push ucard.clone
+		end
+		unless dealer.empty?
+			dcard = dealer.shift
+			arena.push dcard.clone
+		end
+		puts "#{dcard.value}"
+	end
+	if ucard > dcard
+		puts "\nYou win"
+		sleep 1.5
+		user.push(arena.shift) until arena.empty?
+	elsif ucard < dcard
+		puts "/nThe dealer wins"
+		sleep 1.5
+		dealer.push(arena.shift) until arena.empty?
+	end
+	puts "You have #{user.length} cards"
+	sleep 1
+	puts "The dealer has #{dealer.length} cards"
+	puts
+end
