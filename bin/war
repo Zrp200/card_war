@@ -6,7 +6,7 @@ BEGIN {
 		when "-v" then "--version"
 	end
 	puts case ARGV[0]
-		when "--version"; "0.0.0.dev"; exit
+		when "--version"; "0.0.0"; exit
 		when "--help"; "Usage: war [-h | -v]\n\t -v/--version: The version \n\t -h/--help: This message"; exit
 	end
 }
@@ -21,6 +21,7 @@ until user.empty? || dealer.empty?
 	ucard, dcard = user.shift, dealer.shift
 	arena.push ucard.clone
 	arena.push dcard.clone
+	puts "#{ucard.num} vs #{dcard.num}"
 	while ucard.value == dcard.value
 		puts "Tie!\n"; sleep 1.5
 		2.times do
@@ -36,7 +37,7 @@ until user.empty? || dealer.empty?
 			dcard = dealer.shift
 			arena.push dcard.clone
 		end
-		puts "#{dcard.value}"
+		puts "#{ucard.value} vs #{dcard.value}"
 	end
 	if ucard > dcard
 		puts "\nYou win"
