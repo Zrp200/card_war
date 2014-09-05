@@ -1,4 +1,4 @@
-Gem:Specification.new do |war|
+Gem::Specification.new do |war|
     war.name = "war"
     war.version = "0.0.0"
     war.author = "Zachary Perlmutter"
