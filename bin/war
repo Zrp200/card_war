@@ -44,7 +44,7 @@ until user.empty? || dealer.empty?
 		puts "\nYou win"
 		sleep 1.5
 		user.push(arena.shift) until arena.empty?
-	elsif ucard.value < dcard.value
+	elsif dcard.value > ucard.value
 		puts "/nThe dealer wins"
 		sleep 1.5
 		dealer.push(arena.shift) until arena.empty?
