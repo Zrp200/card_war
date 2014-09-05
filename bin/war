@@ -40,7 +40,7 @@ until user.empty? || dealer.empty?
 		end
 		puts "#{ucard.value} vs #{dcard.value}"
 	end
-	if ucard > dcard
+	if ucard.value > dcard.value
 		puts "\nYou win"
 		sleep 1.5
 		user.push(arena.shift) until arena.empty?
