@@ -6,7 +6,7 @@ Gem::Specification.new do |war|
     war.add_runtime_dependency "card_deck", "~> 0.0"
     war.summary = "The card game of war"
     war.files = %w(lib/war.rb)
-    war.extra_rdoc_files = %w(README.md LICENSE)
+    war.extra_rdoc_files = %w(README.md)
     war.license = "MIT"
     war.executables << 'war'
 end
