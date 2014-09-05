@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 require "war"
+include CardDeck
 BEGIN {
 	ARGV[0] = case ARGV[0]
 		when "-h" then "--help"
