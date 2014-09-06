@@ -1,6 +1,5 @@
 require "card_deck"
-include CardDeck
-class Card
+class CardDeck::Card
     # The card's value
         def value
             case @num
