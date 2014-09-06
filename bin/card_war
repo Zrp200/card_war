@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require "war"
+require "card_war"
 include CardDeck
 speed = 1
 BEGIN {
