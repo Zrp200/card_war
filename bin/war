@@ -20,8 +20,8 @@ until deck.cards.empty?
 end
 until user.empty? || dealer.empty?
 	ucard, dcard = user.shift, dealer.shift
-	arena.push ucard.dup
-	arena.push dcard.dup
+	arena.push ucard
+	arena.push dcard
 	puts "#{ucard.num} vs #{dcard.num}"
 	while ucard.value == dcard.value
 		puts "Tie!\n"; sleep 1.5
@@ -32,11 +32,11 @@ until user.empty? || dealer.empty?
 		unless user.empty?
 			ucard = user.shift
 			puts "You play a(n) #{ucard.num}"
-			arena.push ucard.dup
+			arena.push ucard
 		end
 		unless dealer.empty?
 			dcard = dealer.shift
-			arena.push dcard.clone
+			arena.push dcard
 		end
 		puts "#{ucard.num} vs #{dcard.num}"
 	end
