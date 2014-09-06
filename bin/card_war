@@ -20,8 +20,6 @@ until deck.cards.empty?
 	dealer.shuffle!
 end
 until user.empty? || dealer.empty?
-	user.shuffle!
-	dealer.shuffle!
 	ucard, dcard = user.shift, dealer.shift
 	arena.push ucard.clone
 	arena.push dcard.clone
