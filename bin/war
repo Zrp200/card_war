@@ -45,13 +45,14 @@ until user.empty? || dealer.empty?
 		sleep 1.5
 		user.push(arena.shift) until arena.empty?
 	else
-		puts "/nThe dealer wins"
+		puts "\nThe dealer wins"
 		sleep 1.5
 		dealer.push(arena.shift) until arena.empty?
 	end
+	puts
 	puts "You have #{user.length} cards"
-	sleep 1
 	puts "The dealer has #{dealer.length} cards"
+	sleep 2
 	puts
 	puts
 end
