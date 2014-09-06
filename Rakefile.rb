@@ -1,8 +1,7 @@
 namespace 'build' do
-	task '000'.to_sym do
+	task '000'.to_sym do		`gem uninstall war`
 		puts `git pull`
 		puts `gem build war.gemspec`
-		puts `gem uninstall war -v 0.0.0`
 		puts `gem install war-0.0.0.gem`
 		if ENV['PUSH_ALL']
 			`git add -A`
