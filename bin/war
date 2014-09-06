@@ -36,7 +36,7 @@ until user.empty? || dealer.empty?
 		end
 		unless dealer.empty?
 			dcard = dealer.shift
-			arena.push dcard.dup
+			arena.push dcard.clone
 		end
 		puts "#{ucard.num} vs #{dcard.num}"
 	end
@@ -44,7 +44,7 @@ until user.empty? || dealer.empty?
 		puts "\nYou win"
 		sleep 1.5
 		user.push(arena.shift) until arena.empty?
-	elsif dcard.value > ucard.value
+	else
 		puts "/nThe dealer wins"
 		sleep 1.5
 		dealer.push(arena.shift) until arena.empty?
