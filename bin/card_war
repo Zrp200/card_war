@@ -9,7 +9,7 @@ BEGIN {
 	end
 	puts case ARGV[0]
 		when "--version"; "0.0.0"; exit
-		when "--help"; "Usage: war [-h | -v]\n\t -v/--version: The version \n\t -h/--help: This message"; exit
+		when "--help"; "Usage: card_war [-h | -v]\n\t -v/--version: The version \n\t -h/--help: This message"; exit
 	end
 }
 user, dealer, deck, arena = Array.new, Array.new, Deck.new, Array.new
