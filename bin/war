@@ -32,11 +32,11 @@ until user.empty? || dealer.empty?
 		unless user.empty?
 			ucard = user.shift
 			puts "You play a(n) #{ucard.num}"
-			arena.push ucard
+			arena.push ucard.clone
 		end
 		unless dealer.empty?
 			dcard = dealer.shift
-			arena.push dcard
+			arena.push dcard.clone
 		end
 		puts "#{ucard.num} vs #{dcard.num}"
 	end
