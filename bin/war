@@ -19,11 +19,13 @@ until deck.cards.empty?
 	dealer.shuffle!
 end
 until user.empty? || dealer.empty?
+	user.shuffle!
+	dealer.shuffle!
 	ucard, dcard = user.shift, dealer.shift
 	arena.push ucard.clone
 	arena.push dcard.clone
 	puts "#{ucard.num} vs #{dcard.num}"
-	sleep 1
+	sleep 0.5
 	while ucard.value == dcard.value
 		puts "Tie!\n"; sleep 0.5
 		2.times do
@@ -54,7 +56,7 @@ until user.empty? || dealer.empty?
 	puts "You have #{user.length} cards"
 	sleep 0.25
 	puts "The dealer has #{dealer.length} cards"
-	sleep 1
+	sleep 0.75
 	puts
 	puts
 end
