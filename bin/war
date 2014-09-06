@@ -38,7 +38,7 @@ until user.empty? || dealer.empty?
 			dcard = dealer.shift
 			arena.push dcard.dup
 		end
-		puts "#{ucard.value} vs #{dcard.value}"
+		puts "#{ucard.num} vs #{dcard.num}"
 	end
 	if ucard.value > dcard.value
 		puts "\nYou win"
