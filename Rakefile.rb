@@ -12,4 +12,10 @@ namespace 'build' do
 		end
 		puts `git push` 
 	end
+	task '010'.to_sym do
+		`git pull`
+		`gem build card_war.gemspec && gem install card_war-0.1.0.gem`
+		`git add card_war-0.1.0.gem && git commit card_war-0.1.0.gem -m "rake build:010"`
+		`git push`
+	end
 end
