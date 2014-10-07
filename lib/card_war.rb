@@ -11,4 +11,11 @@ class CardDeck::Card
             end
         end
 end
+def input
+	input = gets
+	case input
+		when "quit" then exit
+		when "exit" then exit
+	end
+end
     

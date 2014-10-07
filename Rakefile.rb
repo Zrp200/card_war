@@ -1,15 +1,10 @@
 namespace 'build' do
-	task '000'.to_sym do
+	def process(version, tasknum)
 		puts `git pull`
 		puts `gem build card_war.gemspec`
-		puts `gem install card_war-0.0.0.gem`
-		if ENV['PUSH_ALL']
-			`git add -A`
-			`git commit -m "rake build:000"`
-		else
-			puts `git add card_war-0.0.0.gem`
-			puts `git commit card_war-0.0.0.gem -m "rake build:000"`
-		end
+		puts `gem install card_war-#{version}.gem`
+		puts `git add card_war-#{version}.gem`
+		puts `git commit card_war-#{version}.gem -m "rake build:#{tasknum}"`
 		puts `git push` 
 	end
 	task '010'.to_sym do
@@ -17,5 +12,8 @@ namespace 'build' do
 		`gem build card_war.gemspec && gem install card_war-0.1.0.gem`
 		`git add card_war-0.1.0.gem && git commit card_war-0.1.0.gem -m "rake build:010"`
 		`git push`
+	end
+	task '100'.to_sym do
+		process "1.0.0", "100"
 	end
 end

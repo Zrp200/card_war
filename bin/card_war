@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require "card_war"
 include CardDeck
-speed = 0.9
+speed = 1
 BEGIN {
 	ARGV[0] = case ARGV[0]
 		when "-h" then "--help"
@@ -23,10 +23,11 @@ until user.empty? || dealer.empty?
 	ucard, dcard = user.shift, dealer.shift
 	arena.push ucard.clone
 	arena.push dcard.clone
-	puts "#{ucard.num} of #{ucard.suit} vs #{dcard.num} of #{dcard.suit}"
+	puts "#{ucard.abbr} vs #{dcard.abbr}"
 	sleep 1
 	while ucard.value == dcard.value
-		puts "Tie!\n"; sleep speed
+		puts "Tie!\n"
+		input
 		2.times do
 			arena.push(user.shift) unless user.length <= 1
 			arena.push(dealer.shift) unless dealer.length <= 1
@@ -39,12 +40,12 @@ until user.empty? || dealer.empty?
 			dcard = dealer.shift
 			arena.push dcard.clone
 		end
-		puts "#{ucard.num} of #{ucard.suit} vs #{dcard.num} of #{dcard.suit}"
+		puts "#{ucard.abbr} vs #{dcard.abbr}"
 		sleep speed
 	end
 	if ucard.value > dcard.value
 		puts "You win"
-		sleep speed
+		input
 		user.push(arena.shift) until arena.empty?
 	else
 		puts "The dealer wins"
@@ -53,9 +54,8 @@ until user.empty? || dealer.empty?
 	end
 	puts
 	puts "You have #{user.length} cards"
-	sleep 0.2
+	sleep speed
 	puts "The dealer has #{dealer.length} cards"
-	sleep speed + 0.5
-	puts
+	input
 	puts
 end
